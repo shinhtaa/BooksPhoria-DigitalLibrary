@@ -9,7 +9,6 @@ use App\Http\Controllers\CurrentController;
 use App\Http\Controllers\CopyrightController;
 use App\Http\Controllers\ProsedurController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AuthController::class, 'login'])->name('login');

@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\BooksPhoria;
 use App\Models\Categories;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BooksPhoriaController extends Controller
 {
     
     public function index(Request $request) 
     {
-        if (auth()->user()->role !== 'admin') {
+        if (Auth::user()->role !== 'admin') {
             return redirect()->route('user.index')->with('error', 'Kamu bukan admin!');
         }
 
