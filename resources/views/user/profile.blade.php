@@ -1,6 +1,5 @@
 @extends('layouts.main')
 
-{{-- 1. Bagian Dashboard (Menu Atas) --}}
 @section('dashboard')
     @if(Auth::user()->role == 'admin')
         <li class="nav-item active">
@@ -23,10 +22,8 @@
     @endif
 @endsection
 
-{{-- 2. Bagian Sidebar (Menu Samping) --}}
 @section('sidebar')
     @if(Auth::user()->role == 'admin')
-        {{-- Menu Khusus Admin --}}
         <li class="nav-item">
             <a class="nav-link" href="{{ route('prosedur.index') }}">
                 <i class="fas fa-fw fa-list"></i>
@@ -58,7 +55,6 @@
             </a>
         </li>
     @else
-        {{-- Menu Khusus User --}}
         <li class="nav-item">
             <a class="nav-link" href="{{ route('user.prosedur') }}">
                 <i class="fas fa-fw fa-list"></i>
@@ -122,7 +118,6 @@
     </nav>
     <hr class="mt-0 mb-4">
     
-    {{-- Form Action menggunakan route universal --}}
     <form action="{{ route('user.update_profile') }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
